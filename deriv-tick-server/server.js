@@ -18,7 +18,7 @@ let nSentMessages = 0;
 
 derivConnection.onopen = () => {
   console.log('Connected to Deriv API');
-  subscribeTicks(currentSymbol);
+  // subscribeTicks(currentSymbol);
 };
 
 derivConnection.onclose = () => {
@@ -41,8 +41,6 @@ derivConnection.onmessage = (event) => {
           console.log(`Alerted about ${data.tick.symbol} already, skipping...`);
           return;
         }
-
-        console.log(process.env.SENDGRID_API_KEY)
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
         const msg = {
           to: 'suhayrid6@gmail.com', // Change to your recipient
