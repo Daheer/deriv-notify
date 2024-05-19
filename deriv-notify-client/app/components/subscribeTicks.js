@@ -177,8 +177,8 @@ const SubscribeTicks = () => {
   }, [isSubscribed, selectedSymbol]);
 
   return (
-    <div className='flex gap-4 flex-col items-center'>
-      <div className='flex gap-8'>
+    <div className='gap-4 flex flex-col items-center'>
+      <div className='flex gap-8 grid grid-cols-1 sm:grid-cols-3'>
         <select id="symbol-select" onChange={handleSymbolChange} className='border-2 p-4 rounded-xl hover:border-green-200'>
           <option value="">Select Symbol</option>
           {Object.entries(symbols).map(([displayName, symbol]) => (
@@ -206,9 +206,9 @@ const SubscribeTicks = () => {
       </div>
       <div className='flex bg-gray-200 p-8 rounded'>
         {tickData && (
-          <div className='flex items-left'>
+          <div className='flex items-left grid'>
             <h3><pre>Latest Subscription: </pre></h3>
-            <pre>{JSON.stringify(tickData, null, 2)}</pre>
+            <pre className=''>{JSON.stringify(tickData, null, 2)}</pre>
           </div>
         )}
       </div>
